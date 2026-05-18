@@ -1,0 +1,17 @@
+# Dependency Directories
+node_modules/
+.pnpm-store/
+
+# Build Output Directories
+.next/
+.output/
+dist/
+
+# Environment Variables & Secrets (🚨 원격 저장소 업로드 절대 차단)
+.env
+.env.local
+.env.*.local
+
+# Operating System Files
+Thumbs.db
+.DS_Store

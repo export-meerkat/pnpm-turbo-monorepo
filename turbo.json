@@ -1,0 +1,22 @@
+{
+  "$schema": "https://turbo.build",
+  "tasks": {
+    "types:build": {
+      "inputs": ["packages/types/index.ts", "packages/types/package.json"],
+      "outputs": ["packages/types/dist/**"]
+    },
+    "docs:generate": {
+      "dependsOn": ["types:build"],
+      "inputs": ["scripts/build-openapi.js"],
+      "outputs": ["openapi.json"]
+    },
+    "build": {
+      "dependsOn": ["^build", "docs:generate"],
+      "outputs": [".next/**", "!.next/cache/**", ".output/**", "dist/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
