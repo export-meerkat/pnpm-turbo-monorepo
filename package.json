@@ -6,10 +6,25 @@
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
-    "docs": "turbo docs:generate"
+    "build:db": "turbo run build --filter=@expo-meerkat/supabase...",
+    "build:types": "turbo run build --filter=@expo-meerkat/types...",
+    "openapi": "node ./scripts/build-openapi.js",
+    "sync:db-types": "node ./scripts/sync-db.js",
+    "lint": "eslint . --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
   },
   "devDependencies": {
+    "@anatine/zod-openapi": "^2.2.8",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.9.1",
+    "dotenv": "^17.4.2",
+    "eslint": "^10.4.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.3",
+    "supabase": "^2.101.0",
     "turbo": "^2.0.0",
-    "typescript": "^5.4.0"
+    "typescript": "^5.4.0",
+    "typescript-eslint": "^8.60.0"
   }
 }

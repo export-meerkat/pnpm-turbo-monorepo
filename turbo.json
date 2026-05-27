@@ -1,17 +1,21 @@
 {
   "$schema": "https://turbo.build",
   "tasks": {
-    "types:build": {
-      "inputs": ["packages/types/index.ts", "packages/types/package.json"],
-      "outputs": ["packages/types/dist/**"]
+    "sync:db-types": {
+      "cache": false
     },
-    "docs:generate": {
-      "dependsOn": ["types:build"],
-      "inputs": ["scripts/build-openapi.js"],
+    "@expo-meerkat/types#build": {
+      "inputs": ["src/**/*.ts", "package.json"],
+      "outputs": ["dist/**"]
+    },
+    "//#openapi": {
+      "cache": false,
+      "dependsOn": ["@expo-meerkat/types#build"],
+      "inputs": ["scripts/build-openapi.js", "packages/types/dist/index.js"],
       "outputs": ["openapi.json"]
     },
     "build": {
-      "dependsOn": ["^build", "docs:generate"],
+      "dependsOn": ["^build", "@expo-meerkat/types#build"],
       "outputs": [".next/**", "!.next/cache/**", ".output/**", "dist/**"]
     },
     "dev": {

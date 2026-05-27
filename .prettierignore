@@ -1,0 +1,23 @@
+# Turborepo 오케스트레이터 전용 빌드 캐시 격리
+.turbo/
+.turbo/**
+
+# Next.js 프레임워크 자체 프로덕션 빌드 임시 저장소 격리
+.next/
+.next/**
+
+# 각 패키지별 TypeScript 최종 컴파일 물리 배포본 폴더 격리
+**/dist/**
+**/node_modules/**
+
+# 정적 자동화 추출 시스템 명세 파일 격리
+openapi.json
+packages/supabase/src/types/database.types.ts
+
+# 기술 문서 폴더 격리
+docs/
+docs/**
+
+# Supabase CLI 백그라운드 임시 캐시 폴더 차단
+supabase/.temp/
+supabase/.temp/**
