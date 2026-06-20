@@ -21,3 +21,6 @@ Thumbs.db
 
 # Turborepo Local Artifacts & Cache
 **/.turbo/
+
+# TypeScript 캐시 파일 제외 규칙 추가
+*.tsbuildinfo
