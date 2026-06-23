@@ -1,5 +1,5 @@
 {
-  "$schema": "https://turbo.build",
+  "$schema": "./node_modules/turbo/schema.json",
   "tasks": {
     "sync:db-types": {
       "cache": false
@@ -15,7 +15,8 @@
       "outputs": ["openapi.json"]
     },
     "build": {
-      "dependsOn": ["^build", "@expo-meerkat/types#build"],
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**", ".output/**", "dist/**"]
     },
     "dev": {

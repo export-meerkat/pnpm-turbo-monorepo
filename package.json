@@ -2,10 +2,12 @@
   "name": "pnpm-turbo-monorepo",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@10.34.4",
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
+    "dev:web": "turbo dev --filter=web",
+    "build:web": "turbo build --filter=web",
     "build:db": "turbo run build --filter=@expo-meerkat/supabase...",
     "build:types": "turbo run build --filter=@expo-meerkat/types...",
     "openapi": "node ./scripts/build-openapi.js",

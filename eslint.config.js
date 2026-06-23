@@ -20,6 +20,7 @@ module.exports = tseslint.config(
       'docs/**',
       'packages/supabase/src/types/database.types.ts', // Supabase CLI 자동 생성 파일 제외
       'supabase/.temp/**', // Supabase CLI 로컬 연결 캐시 디렉토리 제외
+      '**/next-env.d.ts', // Next.js 자동 생성 타입 선언 파일 제외
     ],
   },
   // ESLint 및 TypeScript 기술 스펙 추천 규칙 일괄 적용
@@ -40,4 +41,12 @@ module.exports = tseslint.config(
   },
   // Prettier 서식 엔진과의 구문 해석 충돌 방지를 위한 통합 포맷터 잠금
   eslintConfigPrettier,
+  // CommonJS 설정 파일(.js)에 대한 모듈 문법 호환성 처리
+  {
+    files: ['**/*.js'],
+    rules: {
+      'no-undef': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
 );
